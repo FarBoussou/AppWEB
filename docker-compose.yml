@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+    container_name: appweb-php
+    ports:
+      - "8000:80"  
+    volumes:
+      - .:/var/www/html  
+    networks:
+      - app-network
+
+  db:
+    image: mysql:5.7
+    container_name: appweb-db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword 
+      MYSQL_DATABASE: appweb  
+      - "3306:3306"  
+    volumes:
+      - db_data:/var/lib/mysql 
+    networks:
+      - app-network
+
+volumes:
+  db_data:  
+
+networks:
+  app-network:
+    driver: bridge
