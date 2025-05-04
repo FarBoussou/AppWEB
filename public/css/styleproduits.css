@@ -1,11 +1,13 @@
+/* Global styles */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0e0e0e;
-  color: #f2f2f2;
+  background-color: #121212;
+  color: #e0e0e0;
 }
 
+/* Link styling */
 a {
   text-decoration: none;
   color: #00ffe1;
@@ -15,38 +17,34 @@ a:hover {
   color: #ffffff;
 }
 
+/* Header */
 header {
   background-color: #1a1a1a;
   padding: 20px 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
-header .container {
-  width: 90%;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 header h1 {
-  margin: 0;
-  font-size: 26px;
+  font-size: 28px;
   color: #00ffe1;
+  margin: 0;
+  text-align: center;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  gap: 30px;
   padding: 0;
-  margin: 0;
+  margin-top: 10px;
 }
 
 nav ul li a {
   color: #f2f2f2;
   font-weight: bold;
-  transition: color 0.3s;
+  font-size: 18px;
+  transition: color 0.3s ease-in-out;
 }
 
 nav ul li a.active {
@@ -57,6 +55,7 @@ nav ul li a:hover {
   color: #00ffe1;
 }
 
+/* Main content */
 main {
   padding: 40px 20px;
   text-align: center;
@@ -68,6 +67,36 @@ main h2 {
   color: #00ffe1;
 }
 
+form {
+  margin-bottom: 40px;
+}
+
+form input {
+  padding: 10px 15px;
+  width: 250px;
+  border: 2px solid #00ffe1;
+  border-radius: 4px;
+  background-color: #333;
+  color: #e0e0e0;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+form button {
+  padding: 10px 20px;
+  background-color: #00ffe1;
+  color: #000;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+form button:hover {
+  background-color: #00c1a2;
+}
+
+/* Product list */
 .product-list {
   display: flex;
   flex-wrap: wrap;
@@ -83,6 +112,12 @@ main h2 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.6);
 }
 
 .product-card img {
@@ -109,18 +144,46 @@ main h2 {
   color: #000;
   font-weight: bold;
   border-radius: 4px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease-in-out;
   display: inline-block;
+  text-transform: uppercase;
 }
 
 .product-card .btn:hover {
   background-color: #00c1a2;
 }
 
+/* Footer */
 footer {
   background-color: #0a0a0a;
   text-align: center;
   padding: 20px;
   font-size: 14px;
   color: #888;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+  }
+
+  .product-list {
+    flex-direction: column;
+  }
+
+  .product-card {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  form input, form button {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 }

@@ -21,8 +21,16 @@
 
   <main>
     <h2>Nos produits gaming en stock</h2>
+
+    <!-- Formulaire de recherche -->
+    <form method="GET" action="produits.php">
+      <input type="text" name="search" placeholder="Rechercher un produit" value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>">
+      <button type="submit">Rechercher</button>
+    </form>
+
     <div class="product-list">
       <?php 
+        // Liste des produits
         $produits = [
             [
                 'nom' => 'Casque Gaming Xtreme',
@@ -50,6 +58,15 @@
             ]
         ];
 
+        // Filtrer les produits en fonction de la recherche
+        if (isset($_GET['search']) && !empty($_GET['search'])) {
+            $searchTerm = strtolower($_GET['search']);
+            $produits = array_filter($produits, function($produit) use ($searchTerm) {
+                return strpos(strtolower($produit['nom']), $searchTerm) !== false;
+            });
+        }
+
+        // Affichage des produits
         if (isset($produits) && !empty($produits)): 
             foreach ($produits as $produit): 
       ?>
