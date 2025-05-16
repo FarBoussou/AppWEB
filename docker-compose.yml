@@ -16,8 +16,9 @@ services:
     image: mysql:5.7
     container_name: appweb-db
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword 
+      MYSQL_ROOT_PASSWORD: 04072006 
       MYSQL_DATABASE: appweb  
+    ports:
       - "3306:3306"  
     volumes:
       - db_data:/var/lib/mysql 
